@@ -10,9 +10,9 @@ public class ThreadPoolTest {
     public static void main(String[] args) {
     	ExecutorService singleExecutor = null;
     	//singleExecutor = new ThreadPoolExecutor(5, 10, 200, TimeUnit.MILLISECONDS, new ArrayBlockingQueue<Runnable>(5));
-    	singleExecutor = Executors.newCachedThreadPool();
+    	singleExecutor = Executors.newFixedThreadPool(2);
     	
-    	for(int i=0; i<16; i++){
+    	for(int i=0; i<3; i++){
     		MyTask task = new MyTask(i);
     		singleExecutor.execute(task);
     		// System.out.println("线程池中线程数目："+singleExecutor.getPoolSize()+"，队列中等待执行的任务数目："+
